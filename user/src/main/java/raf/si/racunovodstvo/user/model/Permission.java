@@ -24,6 +24,7 @@ public class Permission implements GrantedAuthority {
     private List<User> users;
 
     @Override
+    @JsonIgnore
     public String getAuthority() {
         return null;
     }
