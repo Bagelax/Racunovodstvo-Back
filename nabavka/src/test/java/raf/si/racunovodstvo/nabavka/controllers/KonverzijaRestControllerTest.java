@@ -41,7 +41,7 @@ class KonverzijaRestControllerTest {
         String[] sort = new String[1];
         sort[0] = "1";
 
-        ResponseEntity<?> responseEntity = konverzijaRestController.search(search, page, size, sort, new String());
+        ResponseEntity<?> responseEntity = konverzijaRestController.search(search, page, size, sort);
         assertEquals(200, responseEntity.getStatusCodeValue());
     }
 

@@ -122,19 +122,17 @@ public class KalkulacijaService implements IKalkulacijaService {
         Double totalPoreskaOsnovica = 0.0;
         Double totalProdajnaVrednost = 0.0;
         for (Kalkulacija kalkulacija : kalkulacije) {
-            Stream<KalkulacijaArtikal> artikliStream = kalkulacija.getArtikli().stream();
-
-            totalKolicina += artikliStream.map(Artikal::getKolicina).reduce(0, Integer::sum);
-            totalRabat += artikliStream.map(Artikal::getRabat).reduce(0.0, Double::sum);
-            totalNabavnaCena += artikliStream.map(Artikal::getNabavnaCena).reduce(0.0, Double::sum);
-            totalNabavnaCenaPosleRabata += artikliStream.map(Artikal::getNabavnaCenaPosleRabata).reduce(0.0, Double::sum);
-            totalNabavnaVrednost += artikliStream.map(Artikal::getUkupnaNabavnaVrednost).reduce(0.0, Double::sum);
-            totalMarza += artikliStream.map(KalkulacijaArtikal::getMarza).reduce(0.0, Double::sum);
-            totalOsnovicaZaProdaju += artikliStream.map(KalkulacijaArtikal::getProdajnaOsnovica).reduce(0.0, Double::sum);
-            totalPorez += artikliStream.map(KalkulacijaArtikal::getPorez).reduce(0.0, Double::sum);
-            totalProdajnaCena += artikliStream.map(KalkulacijaArtikal::getProdajnaCena).reduce(0.0, Double::sum);
-            totalPoreskaOsnovica += artikliStream.map(KalkulacijaArtikal::getOsnovica).reduce(0.0, Double::sum);
-            totalProdajnaVrednost += artikliStream.map(KalkulacijaArtikal::getUkupnaProdajnaVrednost).reduce(0.0, Double::sum);
+            totalKolicina += kalkulacija.getArtikli().stream().map(Artikal::getKolicina).reduce(0, Integer::sum);
+            totalRabat += kalkulacija.getArtikli().stream().map(Artikal::getRabat).reduce(0.0, Double::sum);
+            totalNabavnaCena += kalkulacija.getArtikli().stream().map(Artikal::getNabavnaCena).reduce(0.0, Double::sum);
+            totalNabavnaCenaPosleRabata += kalkulacija.getArtikli().stream().map(Artikal::getNabavnaCenaPosleRabata).reduce(0.0, Double::sum);
+            totalNabavnaVrednost += kalkulacija.getArtikli().stream().map(Artikal::getUkupnaNabavnaVrednost).reduce(0.0, Double::sum);
+            totalMarza += kalkulacija.getArtikli().stream().map(KalkulacijaArtikal::getMarza).reduce(0.0, Double::sum);
+            totalOsnovicaZaProdaju += kalkulacija.getArtikli().stream().map(KalkulacijaArtikal::getProdajnaOsnovica).reduce(0.0, Double::sum);
+            totalPorez += kalkulacija.getArtikli().stream().map(KalkulacijaArtikal::getPorez).reduce(0.0, Double::sum);
+            totalProdajnaCena += kalkulacija.getArtikli().stream().map(KalkulacijaArtikal::getProdajnaCena).reduce(0.0, Double::sum);
+            totalPoreskaOsnovica += kalkulacija.getArtikli().stream().map(KalkulacijaArtikal::getOsnovica).reduce(0.0, Double::sum);
+            totalProdajnaVrednost += kalkulacija.getArtikli().stream().map(KalkulacijaArtikal::getUkupnaProdajnaVrednost).reduce(0.0, Double::sum);
         }
         values.put("totalKolicina", totalKolicina);
         values.put("totalRabat", totalRabat);

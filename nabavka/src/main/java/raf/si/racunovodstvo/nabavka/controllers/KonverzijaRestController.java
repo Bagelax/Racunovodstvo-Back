@@ -57,8 +57,7 @@ public class KonverzijaRestController {
     public ResponseEntity<Page<KonverzijaResponse>> search(@RequestParam(name = "search", required = false, defaultValue = "") String search,
                                     @RequestParam(defaultValue = ApiUtil.DEFAULT_PAGE) @Min(ApiUtil.MIN_PAGE) Integer page,
                                     @RequestParam(defaultValue = ApiUtil.DEFAULT_SIZE) @Min(ApiUtil.MIN_SIZE) @Max(ApiUtil.MAX_SIZE) Integer size,
-                                    @RequestParam(defaultValue = "-id") String[] sort,
-                                    @RequestHeader(name = "Authorization") String token) {
+                                    @RequestParam(defaultValue = "-id") String[] sort) {
         Pageable pageSort = ApiUtil.resolveSortingAndPagination(page, size, sort);
         /*
         if (!search.isBlank()) {

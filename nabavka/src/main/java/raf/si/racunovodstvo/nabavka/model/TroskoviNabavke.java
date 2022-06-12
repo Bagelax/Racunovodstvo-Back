@@ -29,5 +29,6 @@ public class TroskoviNabavke {
     private Double cena;
     @ManyToOne
     @JoinColumn(name="baznaKonverzijaKalkulacija")
+    @JsonIgnore
     private BaznaKonverzijaKalkulacija baznaKonverzijaKalkulacija;
 }
